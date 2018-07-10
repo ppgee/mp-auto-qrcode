@@ -1,0 +1,24 @@
+{
+  "name": "mp-auto-qrcode",
+  "version": "1.0.0",
+  "description": "自动生成二维码工具",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ppgee",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "koa": "^2.5.1",
+    "koa-bodyparser": "^4.2.1",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.0",
+    "koa-onerror": "^1.2.1",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "shelljs": "^0.8.2"
+  },
+  "devDependencies": {}
+}

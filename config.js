@@ -1,3 +1,4 @@
 module.exports = {
-  projectpath: '/Users/ppgee/project/housekeeper-mp',
+  installPath: '/Applications/wechatwebdevtools.app',
+  projectPath: '/Users/ppgee/project/housekeeper-mp'
 }

@@ -1,22 +1,21 @@
 const router = require('koa-router')()
-const shell = require('../shell')
+const SHELL = require('../shell')
 const Axios = require('axios')
 
 const config = require('../config')
 
 router.get('/getQrcode', async ctx => {
   try {
-    // 获取端口
-    const port = shell.checkWxToolPort()
+    // 判断是否打开微信开发工具,如果未打开执行打开工具命令
+    !SHELL.checkWxToolPort() && SHELL.openWxTool()
 
-    // 如果未找到端口号
-    if (port === null) {
-      throw '未找到端口号，请开发人员打开微信开发者工具'
-    }
+    // 获取微信工具端口
+    const port = SHELL.getWxToolPort()
 
     // 项目路径
-    const projectPath = encodeURIComponent(config.projectpath)
+    const projectPath = encodeURIComponent(config.projectPath)
     const previewUrl = `http://0.0.0.0:${port}/preview?projectpath=${projectPath}&format=base64`
+    console.info('previewUrl', previewUrl)
 
     // 调用预览接口
     const previewResp = (await Axios.get(previewUrl)).data

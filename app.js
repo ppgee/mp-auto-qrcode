@@ -3,6 +3,9 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const json = require('koa-json')
 const logger = require('koa-logger')
+const { findLocalIPAddress } = require('./utils')
+
+const port = 4444 // 端口
 
 // 路由
 const qrcode = require('./controllers/qrcode')
@@ -36,6 +39,8 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
-app.listen(4444, () => {
-  console.log('app is listening!')
+app.listen(port, () => {
+  console.log(`App runing at:
+  - Local:   http://localhost:${port}/
+  - Network: http://${findLocalIPAddress()}:${port}/`)
 })

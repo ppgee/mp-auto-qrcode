@@ -20,7 +20,9 @@ const TOOL_PORT_PATH = {
 // 查看是否存在端口（是否打开微信开发工具）
 const checkWxToolPort = function () {
   try {
-    return SHELL.test('-f', TOOL_PORT_PATH[CURR_OS])
+    const hasPort = SHELL.test('-f', TOOL_PORT_PATH[CURR_OS])
+    console.info('hasPort', hasPort)
+    return hasPort
   } catch (error) {
     console.info(error)
   }

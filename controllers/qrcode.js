@@ -6,8 +6,8 @@ const config = require('../config')
 
 router.get('/getQrcode', async ctx => {
   try {
-    // 判断是否打开微信开发工具,如果未打开执行打开工具命令
-    !SHELL.checkWxToolPort() && SHELL.openWxTool()
+    // 经测试不能以端口号存在而判断工具是否被打开 (-判断是否打开微信开发工具,如果未打开执行打开工具命令-)
+    SHELL.openWxTool()
 
     // 获取微信工具端口
     const port = SHELL.getWxToolPort()
@@ -24,6 +24,7 @@ router.get('/getQrcode', async ctx => {
     // 获取响应体
     const {response} = error
     ctx.body = !response ? error : response.data.error
+    console.error(error)
   }
 })
 

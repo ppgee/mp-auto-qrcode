@@ -36,4 +36,6 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
-app.listen(4444)
+app.listen(4444, () => {
+  console.log('app is listening!')
+})

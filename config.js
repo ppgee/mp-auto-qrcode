@@ -1,4 +1,4 @@
 module.exports = {
   installPath: '/Applications/wechatwebdevtools.app',
-  projectPath: '/Users/ppgee/project/housekeeper-mp'
+  projectPath: '/Users/ppgee/Desktop/js/wafer2-startup'
 }

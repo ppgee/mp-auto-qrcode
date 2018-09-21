@@ -72,6 +72,8 @@ router.get('/login', async ctx => {
 
     ctx.body = `<img src="${loginResp}" />`
   } catch (error) {
+    // 获取响应体
+    const { response } = error
     if (!response) {
       ctx.body = error
       console.error(error)

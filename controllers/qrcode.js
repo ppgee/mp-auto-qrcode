@@ -6,11 +6,11 @@ const config = require('../config')
 
 const NOT_LOGIN_CODE = 40000
 
-// 获取微信工具端口
-const port = SHELL.getWxToolPort()
-
 const getLoginQRCode = () => {
   return new Promise(async (resolve, reject) => {
+    // 获取微信工具端口
+    const port = SHELL.getWxToolPort()
+
     try {
       const loginUrl = `http://0.0.0.0:${port}/login?format=base64`
       console.info('loginUrl', loginUrl)
@@ -30,6 +30,11 @@ const getPreviewQRCode = () => {
     try {
       // 经测试不能以端口号存在而判断工具是否被打开 (-判断是否打开微信开发工具,如果未打开执行打开工具命令-)
       SHELL.openWxTool()
+
+      console.log('打开工具成功')
+
+      // 获取微信工具端口
+      const port = SHELL.getWxToolPort()
   
       // 项目路径
       const projectPath = encodeURIComponent(config.projectPath)

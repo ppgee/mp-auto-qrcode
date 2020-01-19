@@ -13,8 +13,8 @@ const CLI_PATH = {
 
 // 工具端口文件路径
 const TOOL_PORT_PATH = {
-  'Darwin': '~/Library/Application\ Support/微信web开发者工具/Default/.ide',
-  'Windows_NT': '~/AppData/Local/微信web开发者工具/User\ Data/Default/.ide'
+  'Darwin': '~/Library/Application\ Support/微信开发者工具/Default/.ide',
+  'Windows_NT': '~/AppData/Local/微信开发者工具/User\ Data/Default/.ide'
 }
 
 // 查看是否存在端口（是否打开微信开发工具）
@@ -48,7 +48,9 @@ const openWxTool = function () {
 const getWxToolPort = function () {
   try {
     // 获取端口(如果存在端口的话)
-    return SHELL.tail({'-n': 1}, TOOL_PORT_PATH[CURR_OS]).toString()
+    const port = SHELL.tail({'-n': 1}, TOOL_PORT_PATH[CURR_OS]).toString()
+    console.log('port', port)
+    return port
   } catch (error) {
     console.info(error)
   }
